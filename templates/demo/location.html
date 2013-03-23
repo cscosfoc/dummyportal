@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    {% for building in buildings %}
+        <div class="span4">
+            <h2> {{ building.name }} </h2>
+            <h4> {{ building.address }} </h4>
+            <p> {{ building.description }} </p>
+                {% for img in building.images.all %}
+                   <p><img src ="{{ img.image.url }}" class="img-polaroid"></p>
+                {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

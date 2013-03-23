@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block top %}
+ <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+      </div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    {% for b_fil in b_fil %}
+    <div class="span4">
+     <h2>{{ b_fil.name }}</h2>
+     <p>{{ b_fil.description }}</p>
+     <p><img src ="{{ b_fil.images.all|random }}" class="img-polaroid"></p>
+        <p><a class="btn" href="/hall/{{ b_fil.slug }}/">View details &raquo;</a></p>
+    </div>
+    {% endfor %}
+ </div>
+{% endblock %}
