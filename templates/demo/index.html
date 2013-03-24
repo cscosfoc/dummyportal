@@ -1,23 +1,61 @@
 {% extends "base.html" %}
 
-{% block top %}
- <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Lorem ipsum dolor sit amet</h1>
-        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-      </div>
+{% block slider %}
+    <div class="flexslider">
+        <ul class="slides">
+            <li> <img src="/static/img/1.png" alt="" >
+                <div class="flex-caption">1</div>
+            </li>
+            <li> <img src="/static/img/2.png" alt="" >
+                <div class="flex-caption">2</div>
+            </li>
+            <li> <img src="/static/img/3.png" alt="" >
+                <div class="flex-caption">3</div>
+            </li>
+            <li> <img src="/static/img/4.png" alt="" >
+                <div class="flex-caption">4</div>
+            </li>
+                <li> <img src="/static/img/5.png" alt="" >
+            <div class="flex-caption">5</div>
+            </li>
+        </ul>
+    </div>
+        <span id="responsiveFlag"></span> </div>
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    {% for b_fil in b_fil %}
-    <div class="span4">
-     <h2>{{ b_fil.name }}</h2>
-     <p>{{ b_fil.description }}</p>
-     <p><img src ="{{ b_fil.images.all|random }}" class="img-polaroid"></p>
-        <p><a class="btn" href="/hall/{{ b_fil.slug }}/">View details &raquo;</a></p>
-    </div>
-    {% endfor %}
- </div>
+      <div id="content">
+    <div class="container">
+          <div class="row">
+        <ul class="thumbnails thumbnails-1">
+        {% for h in hall %}
+            <li class="span3">
+                <div class="thumbnail thumbnail-1">
+                    <h3 class="title-1 extra">{{ h.0.location }}</h3>
+                    <img  src="{{ h.0.images.all|random }}" alt="">
+                    <section>
+                        <strong>{{ h.0.name }}</strong>
+                        <p>{{ h.0.description }}</p>
+                        <a href="{{ h|first }}" class="btn btn-1">read more</a>
+                    </section>
+                </div>
+            </li>
+        {% endfor %}
+        <div class="span12">
+              <div class="border-horiz"></div>
+            </div>
+      </div>
+          <div class="row">
+        <article class="span7">
+              <h3 class="title-1 extra">Shortly about me</h3>
+              <div class="wrapper">
+            <figure class="img-indent"><img src="/static/img/page1-img5.jpg " alt="" /></figure>
+            <div class="txt-1 ">Hello! My name is Junestan Davies.</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisc tiulm  torto urna, ut tincidunt dolor. Nunc vule putate ulr
+                  ips consecte. Donec semper tet laciniate ultricie Supi en disse eltel come lectus,fringilla .</p>
+          </div>
+            </article>
+      </div>
+        </div>
+  </div>
 {% endblock %}

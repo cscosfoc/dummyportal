@@ -1,12 +1,15 @@
 from django.shortcuts import render
-from dummy.demo.models import Building, Location
-from random import sample
+from dummy.demo.models import Location
 
 def Index(request):
-    r_id = sample(xrange(1, 6), 3)
-    b_fil = Building.objects.filter(id__in=r_id)
+    locs = Location.objects.all()[:4]
+    hall = list()
+
+    for loc in locs:
+        hall.append(loc.building_set.all()[:1])
+
     context = {
-            'b_fil': b_fil,
+            'hall': hall,
             }
 
     return render(request, 'demo/index.html', context)
